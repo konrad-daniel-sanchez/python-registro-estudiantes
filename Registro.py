@@ -48,10 +48,13 @@ while opcion != 0:
         case 1:
             print("Ingrese el código del estudiante")
             codigo = input()
-            print("Ingrese el nombre del estudiante")
-            nombre = input()
-            nombres_estudiantes[codigo] = nombre
-            asistencias_estudiantes[codigo] = asistencias
+            if codigo not in nombres_estudiantes:
+                print("Ingrese el nombre del estudiante")
+                nombre = input()
+                nombres_estudiantes[codigo] = nombre
+                asistencias_estudiantes[codigo] = asistencias
+            else:
+                print("El código " + codigo + " ya existe")
         case 2:
             print("Ingrese el código del estudiante")
             codigo = input()
@@ -64,7 +67,8 @@ while opcion != 0:
         case 3:
             print("Ingrese el código del estudiante")
             codigo = input()
-            nombres_estudiantes.pop(codigo, None)
+            del nombres_estudiantes[codigo]
+            del asistencias_estudiantes[codigo]
         case 4:
             print("Ingrese el código del estudiante")
             codigo = input()
